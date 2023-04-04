@@ -140,11 +140,11 @@ En resumen, la solución de búsqueda ternaria es correcta y óptima, ya que enc
 Claro, vamos a analizar la complejidad temporal del código proporcionado que combina la búsqueda ternaria y la función costo_total paso a paso.
 
 Búsqueda ternaria:
-La búsqueda ternaria tiene una complejidad temporal de O(log(altura_max - altura_min)). Esto se debe a que el algoritmo divide el espacio de búsqueda en tres partes iguales y descarta un tercio del intervalo en cada iteración. El proceso se repite hasta que el intervalo de búsqueda se reduce a un valor epsilon (eps), que en este caso es igual a 1, ya que estamos trabajando con valores discretos (alturas enteras).
+La búsqueda ternaria tiene una complejidad temporal de O(log(altura_max - altura_min)). Esto se debe a que el algoritmo divide el espacio de búsqueda en tres partes iguales y descarta un tercio del intervalo en cada iteración. El proceso se repite hasta que el intervalo de búsqueda se reduce a un valor epsilon (eps), que en este caso es igual a 0.01 .
 
 Entonces, el número de iteraciones necesarias para que el espacio de búsqueda se reduzca a 1 es logarítmico con respecto al tamaño del intervalo inicial (altura_max - altura_min).
 
-Función costo_total:
+Función costo_total:(Igual que en Fuerza Bruta)
 La función costo_total tiene una complejidad temporal de O(n), donde n es el número de columnas en el muro actual. Esto se debe a que la función itera una vez sobre todas las columnas del muro para calcular la energía consumida en función de la altura objetivo.
 
 Combinación de búsqueda ternaria y costo_total:
@@ -155,7 +155,7 @@ Complejidad total = O(n) *O(log(altura_max - altura_min))
 
 Entonces, la complejidad temporal del código proporcionado que combina la búsqueda ternaria y la función costo_total es O(n * log(altura_max - altura_min)).
 
-Vamos a analizar el código proporcionado paso a paso y demostrar matemáticamente la correctitud y complejidad del algoritmo.
+Vamos a analizar el código proporcionado paso a paso y demostrar la correctitud y complejidad del algoritmo.
 
 Primero, repasemos el código:
 
@@ -201,9 +201,6 @@ Donde:
 h es la altura objetivo,
 A(h), Q(h) y M(h) son las cantidades de bloques agregados, quitados y movidos, respectivamente, como funciones de h,
 c, d y α son los costos de agregar, quitar y mover bloques, respectivamente.
-A continuación, podemos tratar de encontrar una función aproximada para A(h), Q(h) y M(h) como funciones continuas en términos de h.
-
-Ten en cuenta que, debido a la naturaleza discreta del problema, cualquier función analítica obtenida será aproximada y no garantizará la correctitud u optimalidad. Además, verificar la unimodalidad con la segunda derivada podría no ser aplicable en este caso, ya que la función de costo no es necesariamente una función suave y diferenciable en todos los puntos.
 
 Una función unimodal es una función que primero es monótonamente creciente y luego monótonamente decreciente o viceversa. En otras palabras, hay un único punto de mínimo (o máximo) local en el dominio de la función.
 Para demostrar que la función de costo es unimodal, consideremos el problema de construcción del muro en términos del costo de energía en función de la altura objetivo h. El objetivo es minimizar el costo total de energía al construir el muro con altura h. La función de costo total es la suma de tres componentes: energía para agregar bloques (E_agregar), energía para quitar bloques (E_quitar) y energía para mover bloques (E_mover). Cada uno de estos componentes puede ser calculado en función de la altura objetivo h y el costo de cada operación (c para agregar, d para quitar y m para mover). Observemos que E_agregar es una función monótonamente decreciente con respecto a h: a mayor altura, menos bloques necesitamos agregar y, por lo tanto, menos energía consumimos.
