@@ -17,7 +17,7 @@ def busqueda_ternaria(muro_actual, c, d, m, l, r, eps=0.01):
         else:
             l = m1
     # Devuelve la altura óptima aproximada
-    return round(l, 1)
+    return round(l)
 
 # Función para calcular el costo total de energía consumida para construir el muro en la altura h
 def costo_total(muro_actual, h, c, d, m):

@@ -1,5 +1,4 @@
 from random import randint
-from colorama import Fore
 from busqueda_ternaria import busqueda_ternaria
 from fuerza_bruta import fuerza_bruta
 
@@ -17,15 +16,12 @@ def generador(n):
     return muestras, pesos
 
 
-muestras, pesos = generador(10000)
+muestras, pesos = generador(1000)
 
 for i in range(len(muestras)):
-    test = busqueda_ternaria(
+    bt = busqueda_ternaria(
         muestras[i], pesos[i][2], pesos[i][1], pesos[i][0], min(muestras[i]), max(muestras[i]))
-    safe = fuerza_bruta(muestras[i], pesos[i][0], pesos[i][1], pesos[i][2])
-    if test == safe[0]:
-        print(Fore.GREEN, safe, "==", test)
-    else:
-        print(Fore.RED, safe, "==", test)
-    print(Fore.WHITE, muestras[i])
-    print(Fore.WHITE, pesos[i])
+    fb = fuerza_bruta(muestras[i], pesos[i][0], pesos[i][1], pesos[i][2])
+    print('Fuerza bruta', fb[0], "<->", 'Busqueda ternaria', bt)
+    print(muestras[i])
+    print(pesos[i])
