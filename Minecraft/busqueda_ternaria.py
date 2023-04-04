@@ -1,5 +1,5 @@
 # Función de búsqueda ternaria
-def busqueda_ternaria(muro_actual, c, d, m, l, r, eps=1):
+def busqueda_ternaria(muro_actual, c, d, m, l, r, eps=0.01):
     # Se repite hasta que la diferencia entre r y l sea menor o igual que eps
     print(r, l)
     while r - l > eps:
