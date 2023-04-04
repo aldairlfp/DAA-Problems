@@ -8,7 +8,7 @@ def generador(n):
     pesos = []
 
     for i in range(n):
-        size = randint(2, 10)
+        size = randint(2, 20)
         l = [randint(2, 30) for j in range(size)]
         muestras.append(l)
         pesos.append((randint(1, 10), randint(1, 10), randint(1, 10)))
@@ -16,12 +16,12 @@ def generador(n):
     return muestras, pesos
 
 
-muestras, pesos = generador(1000)
+muestras, pesos = generador(100)
 
 for i in range(len(muestras)):
     bt = busqueda_ternaria(
         muestras[i], pesos[i][2], pesos[i][1], pesos[i][0], min(muestras[i]), max(muestras[i]))
-    fb = fuerza_bruta(muestras[i], pesos[i][0], pesos[i][1], pesos[i][2])
+    fb = fuerza_bruta(muestras[i], pesos[i][2], pesos[i][1], pesos[i][0])
     print('Fuerza bruta', fb[0], "<->", 'Busqueda ternaria', bt)
     print(muestras[i])
     print(pesos[i])
