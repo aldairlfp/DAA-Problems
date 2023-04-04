@@ -45,13 +45,3 @@ def fuerza_bruta(muro_actual, c, d, m):
 
     # Devolver la altura óptima y el costo mínimo
     return altura_optima, costo_minimo
-
-# Caso de Prueba
-muro_actual = [3, 5, 2, 6, 4]
-costo_agregar = 5
-costo_quitar = 3
-costo_mover = 7
-
-altura_optima, energia = fuerza_bruta(muro_actual, costo_agregar, costo_quitar, costo_mover)
-print(f"Altura óptima: {altura_optima}")
-print(f"Energía consumida: {energia}")
