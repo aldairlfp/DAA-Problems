@@ -48,11 +48,11 @@ def costo_total(muro_actual, h, c, d, m):
     # Devuelve el costo total de energía
     return energia_mover + energia_agregar + energia_quitar
 
-# Ejemplo de uso
+# Caso de Prueba
 muro_actual = [3, 5, 2, 6, 4]
 costo_agregar = 5
 costo_quitar = 3
-costo_mover = 6
+costo_mover = 7
 
 altura_min = min(muro_actual)
 altura_max = max(muro_actual)
