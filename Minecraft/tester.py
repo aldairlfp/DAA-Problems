@@ -17,11 +17,10 @@ def generador(n):
 
 
 muestras, pesos = generador(100)
-
 for i in range(len(muestras)):
     bt = busqueda_ternaria(
-        muestras[i], pesos[i][2], pesos[i][1], pesos[i][0], min(muestras[i]), max(muestras[i]))
-    fb = fuerza_bruta(muestras[i], pesos[i][2], pesos[i][1], pesos[i][0])
+        muestras[i], pesos[i][0], pesos[i][1], pesos[i][2], min(muestras[i]), max(muestras[i]))
+    fb = fuerza_bruta(muestras[i], pesos[i][0], pesos[i][1], pesos[i][2])
     print('Fuerza bruta', fb[0], "<->", 'Busqueda ternaria', bt)
     print(muestras[i])
     print(pesos[i])

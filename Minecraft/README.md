@@ -28,7 +28,11 @@ Elabore una estrategia que asegure que para cualquier muro inicial a medio
 hacer con que comience, usted logrará hacer el muro pedido utilizando la menor
 cantidad de energia posible.
 
-## Respuesta
+## Observaciones
+
+La altura que debe tener el muro tiene que estar entre la mínima y máxima altura porque si estuviera fuera de los límites se harían movimientos innecesarios. Si el costo de mover un bloque es menor que la suma de los costos de agregar y quitar, se puede reducir el costo total moviendo bloques de una columna a otra en lugar de agregar y quitar bloques. En caso contrario, es mejor agregar y quitar bloques.
+
+## Primera solución
 
 ### Fuerza bruta
 
@@ -133,7 +137,7 @@ Correctitud y optimalidad:
 
 La búsqueda ternaria es un algoritmo para encontrar el mínimo (o máximo) de una función unimodal. En este caso, la función de costo total es unimodal, ya que para alturas muy bajas o muy altas, el costo de energía será alto y habrá un mínimo local en algún punto intermedio.
 
-La búsqueda ternaria evalúa dos puntos en el espacio de búsqueda ($m1$ y $m2$) y se actualizan los límites ($l$ y $r$) dependiendo de cuál de los dos puntos tiene un costo menor. Al repetir este proceso, el espacio de búsqueda se reduce hasta que se encuentra el mínimo aproximado.
+La búsqueda ternaria evalúa dos puntos en el espacio de búsqueda (`m1` y `m2`) y se actualizan los límites (`l` y `r`) dependiendo de cuál de los dos puntos tiene un costo menor. Al repetir este proceso, el espacio de búsqueda se reduce hasta que se encuentra el mínimo aproximado.
 
 La solución es óptima en términos de energía consumida, ya que la función de costo total considera todos los posibles movimientos (agregar, quitar y mover bloques) y sus respectivos costos. Además, la búsqueda ternaria garantiza que se encuentra la altura óptima que minimiza la energía consumida.
 
